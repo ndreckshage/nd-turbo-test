@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 // import Header from './_components/header'
 // import Content from './_components/content'
 
-export const config = { runtime: 'edge' }
+export const config = { runtime: 'experimental-edge' }
 // export const revalidate = 0
 
 async function Product({ data }: { data: Promise<Response> }) {
