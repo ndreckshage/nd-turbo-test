@@ -9,15 +9,18 @@ export default function ContentButton() {
 
   return (
     <button
+      style={{ border: '1px solid blue' }}
       onClick={() => {
         startTransition(() => {
           // Refresh the current route and fetch new data from the server without
           // losing client-side browser or React state.
+          // router.refresh()
+          router.replace('/')
           router.refresh()
         })
       }}
     >
-      Refresh (pending: {isPending ? 'yes' : 'no'})
+      Refresh / example mutation (pending: {isPending ? 'yes' : 'no'})
     </button>
   )
 }

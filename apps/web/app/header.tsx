@@ -1,5 +1,7 @@
 const getData = (ms: number): Promise<{ foo: string }> =>
-  new Promise((res) => setTimeout(() => res({ foo: 'bar' }), ms))
+  new Promise((res) =>
+    setTimeout(() => res({ foo: `bar - ${Date.now()}` }), ms)
+  )
 
 export default async function Header() {
   const data = await getData(1000)

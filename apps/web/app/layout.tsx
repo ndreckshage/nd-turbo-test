@@ -13,9 +13,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Link href="/">Home</Link>&nbsp;
-        <Link href="/dashboard">Dashboard</Link>&nbsp;
+      <body style={{ padding: 10 }}>
+        {/* forces suspense boundaries to be hit */}
+        <Link href="/" prefetch={false}>
+          Home
+        </Link>
+        &nbsp;
+        <Link href="/dashboard">Dashboard</Link>
+        &nbsp;
         <Link href="/dashboard/settings">Dashboard Settings</Link>
         <div>Global Layout!</div>
         {children}
