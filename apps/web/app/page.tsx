@@ -3,7 +3,7 @@ import { Button } from 'ui'
 import Header from './header'
 import Content from './content'
 
-export const config = { runtime: 'edge' }
+// export const config = { runtime: 'edge' }
 export const revalidate = 0
 
 export default function Web() {
