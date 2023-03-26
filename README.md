@@ -10,3 +10,7 @@
 NOTES:
 
 - https://beta.nextjs.org/docs/routing/fundamentals
+
+BUGS:
+
+- turbopack, server components dont revalidate, dont show suspense boundaries
