@@ -1,9 +1,13 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { ReactNode, useTransition } from 'react'
+import React, { useTransition } from 'react'
 
-export default function ContentWrap({ children }: { children: ReactNode }) {
+export default function ContentWrap({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
 
