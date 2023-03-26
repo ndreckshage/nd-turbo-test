@@ -21,15 +21,15 @@ export default async function Web() {
       <h1 className="text-3xl font-bold underline text-purple-700">Web</h1>
       {/* @ts-expect-error Async Server Component */}
       <Product
-        data={fetch(`https://app-dir.vercel.app/api/products?id=1&delay=500`, {
+        data={fetch(`https://app-dir.vercel.app/api/products?id=1&delay=200`, {
           cache: 'no-store',
         })}
       />
-      <Suspense fallback={<p>Loading Product 2...</p>}>
+      <Suspense fallback={<p>Loading Product 2 (1s)...</p>}>
         {/* @ts-expect-error Async Server Component */}
         <Product
           data={fetch(
-            `https://app-dir.vercel.app/api/products?id=2&delay=1500`,
+            `https://app-dir.vercel.app/api/products?id=2&delay=1000`,
             {
               cache: 'no-store',
             }
@@ -37,11 +37,11 @@ export default async function Web() {
         />
         {/* <Header /> */}
       </Suspense>
-      <Suspense fallback={<p>Loading Product 3...</p>}>
+      <Suspense fallback={<p>Loading Product 3 (4s)...</p>}>
         {/* @ts-expect-error Async Server Component */}
         <Product
           data={fetch(
-            `https://app-dir.vercel.app/api/products?id=3&delay=2500`,
+            `https://app-dir.vercel.app/api/products?id=3&delay=4000`,
             {
               cache: 'no-store',
             }
