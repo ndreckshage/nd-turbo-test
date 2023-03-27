@@ -21,8 +21,21 @@ export async function loader({ request }: LoaderArgs) {
   })
 }
 
-const Product = ({ id, name }: { id: number; name: string }) => (
-  <p>
+const Product = ({ id, name }: { id: string; name: string }) => (
+  <p
+    style={{
+      background: (() => {
+        switch (id) {
+          case '1':
+            return 'lightgreen'
+          case '2':
+            return 'pink'
+          default:
+            return 'cyan'
+        }
+      })(),
+    }}
+  >
     {id} - {name} {new Array(2500).fill('.').join('')}
   </p>
 )
