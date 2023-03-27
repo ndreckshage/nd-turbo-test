@@ -23,7 +23,7 @@ export async function loader({ request }: LoaderArgs) {
 
 const Product = ({ id, name }: { id: number; name: string }) => (
   <p>
-    {id} - {name}
+    {id} - {name} {new Array(2500).fill('.').join('')}
   </p>
 )
 
