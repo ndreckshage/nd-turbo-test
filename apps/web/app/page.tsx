@@ -5,18 +5,25 @@ import { Suspense } from 'react'
 export const config = { runtime: 'edge' }
 export const revalidate = 0
 
-// test to see if we can force flushing on Vercel...
-const Fill = () => (
-  <span style={{ display: 'none' }}>{new Array(1000).fill('a').join('')}</span>
-)
-
 async function Product({ data }: { data: Promise<Response> }) {
   const product = await data.then((res) => res.json())
 
   return (
-    <p>
-      {product.id} - {product.name}
-      <Fill />
+    <p
+      style={{
+        background: (() => {
+          switch (product.id) {
+            case '1':
+              return 'lightgreen'
+            case '2':
+              return 'pink'
+            default:
+              return 'cyan'
+          }
+        })(),
+      }}
+    >
+      {product.id} - {product.name} {new Array(2500).fill('.').join('')}
     </p>
   )
 }
@@ -27,16 +34,15 @@ export default async function Web() {
       <h1 className="text-3xl font-bold underline text-purple-700">Web</h1>
       {/* @ts-expect-error Async Server Component */}
       <Product
-        data={fetch(`https://app-dir.vercel.app/api/products?id=1&delay=200`, {
+        data={fetch(`https://app-dir.vercel.app/api/products?id=1&delay=400`, {
           cache: 'no-store',
         })}
       />
-      <Fill />
       <Suspense fallback={<p>Loading Product 2 (1s)...</p>}>
         {/* @ts-expect-error Async Server Component */}
         <Product
           data={fetch(
-            `https://app-dir.vercel.app/api/products?id=2&delay=1000`,
+            `https://app-dir.vercel.app/api/products?id=2&delay=1400`,
             {
               cache: 'no-store',
             }
@@ -44,12 +50,11 @@ export default async function Web() {
         />
         {/* <Header /> */}
       </Suspense>
-      <Fill />
-      <Suspense fallback={<p>Loading Product 3 (4s)...</p>}>
+      <Suspense fallback={<p>Loading Product 3 (2s)...</p>}>
         {/* @ts-expect-error Async Server Component */}
         <Product
           data={fetch(
-            `https://app-dir.vercel.app/api/products?id=3&delay=4000`,
+            `https://app-dir.vercel.app/api/products?id=3&delay=2400`,
             {
               cache: 'no-store',
             }
