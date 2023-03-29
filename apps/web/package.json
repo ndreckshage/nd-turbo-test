@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@planetscale/database": "^1.6.0",
     "@vercel/edge-config": "^0.1.5",
     "next": "13.2.4",
     "react": "18.2.0",

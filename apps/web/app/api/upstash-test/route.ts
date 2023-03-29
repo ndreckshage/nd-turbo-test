@@ -13,8 +13,6 @@ export async function GET() {
     }
   )
 
-  console.log(response.headers)
-
   const data = await response.json()
 
   return NextResponse.json({ data })
