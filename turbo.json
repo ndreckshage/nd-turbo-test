@@ -6,6 +6,15 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
+    "web#build": {
+      "dependsOn": ["^build"],
+      "env": [
+        "EDGE_CONFIG",
+        "UPSTASH_REDIS_REST_URL",
+        "UPSTASH_REDIS_REST_TOKEN"
+      ],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
     "lint": {
       "outputs": []
     },
