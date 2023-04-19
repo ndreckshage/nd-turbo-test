@@ -14,7 +14,8 @@
         "UPSTASH_REDIS_REST_TOKEN",
         "PLANETSCALE_DATABASE_HOST",
         "PLANETSCALE_DATABASE_USERNAME",
-        "PLANETSCALE_DATABASE_PASSWORD"
+        "PLANETSCALE_DATABASE_PASSWORD",
+        "OPENAI_API_KEY"
       ],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
