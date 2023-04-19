@@ -39,8 +39,7 @@ export async function GET(request: Request) {
       });
 
       return NextResponse.json({ result: completion.data.choices[0].text });
-    } catch (e) {
-        console.log('e', e)
+    } catch (e: any) {
         return NextResponse.json({ err: e.message });
     }
   }
